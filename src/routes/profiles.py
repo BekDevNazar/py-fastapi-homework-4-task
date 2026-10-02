@@ -57,8 +57,6 @@ async def create_profile(
     date_of_birth: date = Form(...),
     info: str = Form(...),
     avatar: UploadFile = File(...),
-    authorization: str | None = Header(default=None),
-    jwt_manager: JWTAuthManagerInterface = Depends(get_jwt_auth_manager),
     payload: dict = Depends(get_auth_payload),
     db: AsyncSession = Depends(get_db),
     s3_client: S3StorageInterface = Depends(get_s3_storage_client),
